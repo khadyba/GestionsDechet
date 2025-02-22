@@ -1,0 +1,34 @@
+{
+    "sourceFile": "app/Http/Controllers/AuthController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1740211070414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740211079637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n  \n          return response()->json(['token' => $token]);\n      }\n  \n-     // Connexion\n+       // Connexion\n      public function login(Request $request)\n      {\n          $credentials = $request->only('email', 'password');\n  \n"
+                },
+                {
+                    "date": 1740211599930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n \n+\n class AuthController extends Controller\n {\n      // Inscription\n      public function register(Request $request)\n"
+                },
+                {
+                    "date": 1740211626526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,21 @@\n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n \n-\n+/**\n+ * @OA\\Info(\n+ *      version=\"1.0.0\",\n+ *      title=\"API de gestion des déchets électroniques\",\n+ *      description=\"Documentation de l'API avec Swagger\",\n+ *      @OA\\Contact(\n+ *          email=\"support@example.com\"\n+ *      )\n+ * )\n+ */\n class AuthController extends Controller\n {\n+    \n      // Inscription\n      public function register(Request $request)\n      {\n          $request->validate([\n"
+                },
+                {
+                    "date": 1740211651186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,26 @@\n  * )\n  */\n class AuthController extends Controller\n {\n-    \n+     /**\n+     * @OA\\Post(\n+     *     path=\"/api/register\",\n+     *     summary=\"Inscription d'un nouvel utilisateur\",\n+     *     tags={\"Authentification\"},\n+     *     @OA\\RequestBody(\n+     *         required=true,\n+     *         @OA\\JsonContent(\n+     *             required={\"name\",\"email\",\"password\"},\n+     *             @OA\\Property(property=\"name\", type=\"string\", example=\"Khady\"),\n+     *             @OA\\Property(property=\"email\", type=\"string\", format=\"email\", example=\"khady@example.com\"),\n+     *             @OA\\Property(property=\"password\", type=\"string\", format=\"password\", example=\"motdepasse\")\n+     *         ),\n+     *     ),\n+     *     @OA\\Response(response=201, description=\"Utilisateur créé avec succès\"),\n+     *     @OA\\Response(response=400, description=\"Erreur de validation\"),\n+     * )\n+     */\n      // Inscription\n      public function register(Request $request)\n      {\n          $request->validate([\n@@ -36,9 +53,9 @@\n  \n          return response()->json(['token' => $token]);\n      }\n  \n-       // Connexion\n+       \n      public function login(Request $request)\n      {\n          $credentials = $request->only('email', 'password');\n  \n"
+                }
+            ],
+            "date": 1740211070414,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass AuthController extends Controller\n{\n     // Inscription\n     public function register(Request $request)\n     {\n         $request->validate([\n             'name' => 'required|string|max:255',\n             'email' => 'required|string|email|max:255|unique:users',\n             'password' => 'required|string|min:6',\n         ]);\n \n         $user = User::create([\n             'name' => $request->name,\n             'email' => $request->email,\n             'password' => Hash::make($request->password),\n         ]);\n \n         $token = JWTAuth::fromUser($user);\n \n         return response()->json(['token' => $token]);\n     }\n \n     // Connexion\n     public function login(Request $request)\n     {\n         $credentials = $request->only('email', 'password');\n \n         if (!$token = JWTAuth::attempt($credentials)) {\n             return response()->json(['error' => 'Unauthorized'], 401);\n         }\n \n         return response()->json(['token' => $token]);\n     }\n \n     // Déconnexion\n     public function logout()\n     {\n         JWTAuth::invalidate(JWTAuth::getToken());\n         return response()->json(['message' => 'Déconnecté avec succès']);\n     }\n \n     // Obtenir les infos de l'utilisateur authentifié\n     public function me()\n     {\n         return response()->json(JWTAuth::user());\n     }\n}\n"
+        }
+    ]
+}

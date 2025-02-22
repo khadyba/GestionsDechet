@@ -1,0 +1,86 @@
+{
+    "sourceFile": "database/migrations/2014_10_12_000000_create_users_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1740227931002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740227967707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,10 @@\n         Schema::create('users', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('email')->unique();\n+            $table->string('email')->unique();\n+\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740227974107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,9 @@\n         Schema::create('users', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('email')->unique();\n-            $table->string('email')->unique();\n-\n+            $table->number('email')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740227981745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('users', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('email')->unique();\n-            $table->number('email')->unique();\n+            $table->number('te')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740228019569,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,12 @@\n         Schema::create('users', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('email')->unique();\n-            $table->number('te')->unique();\n+            $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n+            \n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228036654,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            \n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228044436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n+            $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228049649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->string('password');\n+            $table->string('role');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228107645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->string('role');\n+            $table->enu('role');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228118117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enu('role');\n+            $table->enum('role';);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228124052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enum('role';);\n+            $table->enum('role';['']);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228132388,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enum('role';['']);\n+            $table->enum('role';['cytoyen',]);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228138449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enum('role';['cytoyen',]);\n+            $table->enum('role',['cytoyen',]);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228148258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enum('role',['cytoyen',]);\n+            $table->enum('role',['cytoyen','entreprise']);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228164105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enum('role',['cytoyen','entreprise']);\n+            $table->enum('role',['cytoyen','entreprise',]);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740236638380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,14 @@\n     {\n         Schema::create('users', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n+            \n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n-            $table->enum('role',['cytoyen','entreprise',]);\n+            $table->enum('role',['cytoyen','entreprise','admin']);\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740236646156,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('users', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n-            \n+            $table->string('prenom');\n             $table->string('email')->unique();\n             $table->number('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n"
+                },
+                {
+                    "date": 1740244126130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('prenom');\n             $table->string('email')->unique();\n-            $table->number('télephone')->unique();\n+            $table->string('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n             $table->enum('role',['cytoyen','entreprise','admin']);\n             $table->rememberToken();\n"
+                }
+            ],
+            "date": 1740227931002,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('users', function (Blueprint $table) {\n            $table->id();\n            $table->string('nom');\n            $table->string('email')->unique();\n            $table->timestamp('email_verified_at')->nullable();\n            $table->string('password');\n            $table->rememberToken();\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('users');\n    }\n};\n"
+        }
+    ]
+}

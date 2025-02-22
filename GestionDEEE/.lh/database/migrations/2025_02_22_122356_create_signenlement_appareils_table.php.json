@@ -1,0 +1,70 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_122356_create_signenlement_appareils_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1740233171864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740233180315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,10 @@\n     public function up(): void\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n-            \n+            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n+\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233185562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-\n+            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n+             \n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233214022,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n     public function up(): void\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n+            $table->foreignId('reports')->constrained()->onDelete('cascade');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n              \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740233219718,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n-            $table->foreignId('reports')->constrained()->onDelete('cascade');\n+            $table->foreignId('report_id')->constrained()->onDelete('cascade');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740233291242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('report_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('')->constrained()->onDelete('cascade');\n              \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740233313420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('report_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('')->constrained()->onDelete('cascade');\n+            $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n              \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740233390511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,8 @@\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('report_id')->constrained()->onDelete('cascade');\n             $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n-             \n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233924428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,30 @@\n+<?php\n+\n+use Illuminate\\Database\\Migrations\\Migration;\n+use Illuminate\\Database\\Schema\\Blueprint;\n+use Illuminate\\Support\\Facades\\Schema;\n+\n+return new class extends Migration\n+{\n+    /**\n+     * Run the migrations.\n+     */\n+    public function up(): void\n+    {\n+        Schema::create('signenlement_appareils', function (Blueprint $table) {\n+            $table->id();\n+            $table->foreignId('report_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('report_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n+            $table->timestamps();\n+        });\n+    }\n+\n+    /**\n+     * Reverse the migrations.\n+     */\n+    public function down(): void\n+    {\n+        Schema::dropIfExists('signenlement_appareils');\n+    }\n+};\n"
+                },
+                {
+                    "date": 1740233979213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('report_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('report_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('')->constrained()->onDelete('cascade');\n             $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n@@ -27,33 +27,4 @@\n     {\n         Schema::dropIfExists('signenlement_appareils');\n     }\n };\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('signenlement_appareils', function (Blueprint $table) {\n-            $table->id();\n-            $table->foreignId('report_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n-            $table->timestamps();\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('signenlement_appareils');\n-    }\n-};\n"
+                },
+                {
+                    "date": 1740233994219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('report_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('')->constrained()->onDelete('cascade');\n+            $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n             $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234012944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('report_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n             $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740237322590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n-            $table->foreignId('report_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('reports_id')->constrained()->onDelete('cascade');\n             $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740237328707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('signenlement_appareils', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('reports_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('appareille_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('appareille_sid')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n \n"
+                }
+            ],
+            "date": 1740233171864,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('signenlement_appareils', function (Blueprint $table) {\n            $table->id();\n            \n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('signenlement_appareils');\n    }\n};\n"
+        }
+    ]
+}

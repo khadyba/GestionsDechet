@@ -1,0 +1,70 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_121820_create_recycling_companies_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1740233470761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740233476882,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n      */\n     public function up(): void\n     {\n         Schema::create('recycling_companies', function (Blueprint $table) {\n-            \n             $table->id();\n+            $table->id();\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233510946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('recycling_companies', function (Blueprint $table) {\n             $table->id();\n-            $table->id();\n+            $table->string();\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233517044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n     public function up(): void\n     {\n         Schema::create('recycling_companies', function (Blueprint $table) {\n             $table->id();\n-            $table->string();\n+            $table->string('nom');\n+            $table->string('nom');\n+\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233551917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,9 @@\n     {\n         Schema::create('recycling_companies', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n-            $table->string('nom');\n-\n+            $table->string('contact');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233561738,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,10 @@\n         Schema::create('recycling_companies', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n+            $table->string('adress');\n+\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740233569045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('recycling_companies', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n-            $table->string('adress');\n+            $table->string('adresse');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740233577005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n-\n+            $table->string('type');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234003243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n      * Run the migrations.\n      */\n     public function up(): void\n     {\n-        Schema::create('recycling_companies', function (Blueprint $table) {\n+        Schema::create('recycling-companies', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n-            $table->string('type');\n+            $table->string('typeDechets');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234217276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n+            \n             $table->string('typeDechets');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234240904,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n-            \n+            $table->foreignId('collection_points')->constrained()->onDelete('cascade');\n             $table->string('typeDechets');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234246102,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n-            $table->foreignId('collection_points')->constrained()->onDelete('cascade');\n+            $table->foreignId('collection-points')->constrained()->onDelete('cascade');\n             $table->string('typeDechets');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740243806107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n      * Run the migrations.\n      */\n     public function up(): void\n     {\n-        Schema::create('recycling-companies', function (Blueprint $table) {\n+        Schema::create('recyclingcompanies', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n-            $table->foreignId('collection-points')->constrained()->onDelete('cascade');\n+            $table->foreignId('collection-points_id')->constrained()->onDelete('cascade');\n             $table->string('typeDechets');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740243819173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,14 +10,14 @@\n      * Run the migrations.\n      */\n     public function up(): void\n     {\n-        Schema::create('recyclingcompanies', function (Blueprint $table) {\n+        Schema::create('recycling_companies', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('contact');\n             $table->string('adresse');\n-            $table->foreignId('collection-points_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('collection_points_id')->constrained()->onDelete('cascade');\n             $table->string('typeDechets');\n             $table->timestamps();\n         });\n     }\n"
+                }
+            ],
+            "date": 1740233470761,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('recycling_companies', function (Blueprint $table) {\n            \n            $table->id();\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('recycling_companies');\n    }\n};\n"
+        }
+    ]
+}

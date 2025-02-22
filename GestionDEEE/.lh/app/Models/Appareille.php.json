@@ -1,0 +1,50 @@
+{
+    "sourceFile": "app/Models/Appareille.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1740239227998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740239308972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,10 @@\n class Appareille extends Model\n {\n     use HasFactory;\n \n-    \n+\n+    public function reports()\n+    {\n+        return $this->belongsToMany(Report::class);\n+    }\n }\n"
+                },
+                {
+                    "date": 1740239352108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,15 @@\n \n class Appareille extends Model\n {\n     use HasFactory;\n+       \n+    \n \n-\n     public function reports()\n     {\n         return $this->belongsToMany(Report::class);\n     }\n+\n+\n+\n }\n"
+                },
+                {
+                    "date": 1740239423325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,16 @@\n class Appareille extends Model\n {\n     use HasFactory;\n        \n-    \n+    protected $fillable = [\n+        'name',\n+        'prenom',\n+        'email',\n+        'télephone',\n+        'password',\n+        'role',\n+    ];\n \n     public function reports()\n     {\n         return $this->belongsToMany(Report::class);\n"
+                },
+                {
+                    "date": 1740239436278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n        \n     protected $fillable = [\n-        'name',\n+        'libelle',\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n"
+                },
+                {
+                    "date": 1740239454595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     use HasFactory;\n        \n     protected $fillable = [\n         'libelle',\n-        'prenom',\n+        'description',\n         'email',\n         'télephone',\n         'password',\n         'role',\n"
+                },
+                {
+                    "date": 1740239570219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n        \n     protected $fillable = [\n         'libelle',\n         'description',\n-        'email',\n+        'etat',\n         'télephone',\n         'password',\n         'role',\n     ];\n"
+                },
+                {
+                    "date": 1740239613893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,8 @@\n     protected $fillable = [\n         'libelle',\n         'description',\n         'etat',\n-        'télephone',\n-        'password',\n-        'role',\n     ];\n \n     public function reports()\n     {\n"
+                },
+                {
+                    "date": 1740241292126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,25 @@\n+<?php\n+\n+namespace App\\Models;\n+\n+use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n+use Illuminate\\Database\\Eloquent\\Model;\n+\n+class Appareille extends Model\n+{\n+    use HasFactory;\n+       \n+    protected $fillable = [\n+        'libelle',\n+        'description',\n+        'etat',\n+    ];\n+    \n+    public function reports()\n+    {\n+        return $this->belongsToMany(Report::class);\n+    }\n+\n+\n+\n+}\n"
+                }
+            ],
+            "date": 1740239227998,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Appareille extends Model\n{\n    use HasFactory;\n\n    \n}\n"
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "sourceFile": "app/Models/Report.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1740238787178,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740238811117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,6 +8,13 @@\n class Report extends Model\n {\n     use HasFactory;\n \n-    \n+    protected $fillable = [\n+        'name',\n+        'prenom',\n+        'email',\n+        'télephone',\n+        'password',\n+        'role',\n+    ];\n }\n"
+                },
+                {
+                    "date": 1740238857435,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,6 @@\n         'email',\n         'télephone',\n         'password',\n         'role',\n-    ];\n+    ];  \n }\n"
+                },
+                {
+                    "date": 1740238904956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'name',\n+        'quantite',\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n"
+                },
+                {
+                    "date": 1740238966309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'quantite',\n-        'prenom',\n+        'coordonneesGPS',\n         'email',\n         'télephone',\n         'password',\n         'role',\n"
+                },
+                {
+                    "date": 1740238985245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n     protected $fillable = [\n         'quantite',\n         'coordonneesGPS',\n-        'email',\n+        'dateSignalement',\n         'télephone',\n         'password',\n         'role',\n     ];  \n"
+                },
+                {
+                    "date": 1740239029537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     protected $fillable = [\n         'quantite',\n         'coordonneesGPS',\n         'dateSignalement',\n-        'télephone',\n+        'statut',\n         'password',\n         'role',\n     ];  \n }\n"
+                },
+                {
+                    "date": 1740239049603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,8 @@\n         'quantite',\n         'coordonneesGPS',\n         'dateSignalement',\n         'statut',\n-        'password',\n+        'users_id',\n         'role',\n     ];  \n }\n"
+                },
+                {
+                    "date": 1740239065638,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,6 @@\n         'coordonneesGPS',\n         'dateSignalement',\n         'statut',\n         'users_id',\n-        'role',\n     ];  \n }\n"
+                },
+                {
+                    "date": 1740239097754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,10 @@\n         'coordonneesGPS',\n         'dateSignalement',\n         'statut',\n         'users_id',\n+        'recycling-companies_id'\n     ];  \n+\n+\n+\n }\n"
+                },
+                {
+                    "date": 1740239143583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,8 @@\n         'users_id',\n         'recycling-companies_id'\n     ];  \n \n+    \n \n \n }\n"
+                },
+                {
+                    "date": 1740239241577,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,15 @@\n         'users_id',\n         'recycling-companies_id'\n     ];  \n \n-    \n+    public function user()\n+    {\n+        return $this->belongsTo(User::class);\n+    }\n \n+    public function appareils()\n+{\n+    return $this->belongsToMany(Appareil::class);\n+}\n \n }\n"
+                },
+                {
+                    "date": 1740239249336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n         return $this->belongsTo(User::class);\n     }\n \n     public function appareils()\n-{\n-    return $this->belongsToMany(Appareil::class);\n-}\n+    {\n+        return $this->belongsToMany(Appareil::class);\n+    }\n \n }\n"
+                },
+                {
+                    "date": 1740239270007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,6 +26,8 @@\n     public function appareils()\n     {\n         return $this->belongsToMany(Appareil::class);\n     }\n+     \n \n+    \n }\n"
+                },
+                {
+                    "date": 1740239287312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,5 @@\n         return $this->belongsToMany(Appareil::class);\n     }\n      \n \n-    \n }\n"
+                },
+                {
+                    "date": 1740243516224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'quantite',\n+        ''\n         'coordonneesGPS',\n         'dateSignalement',\n         'statut',\n         'users_id',\n"
+                },
+                {
+                    "date": 1740243521865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'quantite',\n-        ''\n+        'image',\n         'coordonneesGPS',\n         'dateSignalement',\n         'statut',\n         'users_id',\n"
+                }
+            ],
+            "date": 1740238787178,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Report extends Model\n{\n    use HasFactory;\n\n    \n}\n"
+        }
+    ]
+}

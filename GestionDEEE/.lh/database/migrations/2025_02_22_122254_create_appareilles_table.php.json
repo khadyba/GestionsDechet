@@ -1,0 +1,102 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_122254_create_appareilles_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1740229311459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740229613009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n-            $table->id();\n+            \n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740229622192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n+            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n             \n \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740229635071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n-            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n+            $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740229873077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,10 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n+            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n+\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229887808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n-\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229912465,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n-            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n+            $table->enum('libeller');\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229919852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n-            $table->enum('libeller');\n+            $table->string('libeller');\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229932278,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n+            $table->;\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229939999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n-            $table->;\n+            $table->te;\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229945119,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n-            $table->te;\n+            $table->;\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229955706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n-            $table->;\n+            $table->text;\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740229963845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+<?php\n+\n+use Illuminate\\Database\\Migrations\\Migration;\n+use Illuminate\\Database\\Schema\\Blueprint;\n+use Illuminate\\Support\\Facades\\Schema;\n+\n+return new class extends Migration\n+{\n+    /**\n+     * Run the migrations.\n+     */\n+    public function up(): void\n+    {\n+        Schema::create('appareilles', function (Blueprint $table) {\n+            $table->id();\n+            $table->string('libeller');\n+            $table->text('description');\n+            $table->enum('etat',['en attente','traité','refusé'])->def;\n+            \n+\n+            $table->timestamps();\n+        });\n+    }\n+\n+    /**\n+     * Reverse the migrations.\n+     */\n+    public function down(): void\n+    {\n+        Schema::dropIfExists('appareilles');\n+    }\n+};\n"
+                },
+                {
+                    "date": 1740229969173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n-            $table->text('description');\n+            $table->text('description')->default;\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n@@ -29,36 +29,4 @@\n     {\n         Schema::dropIfExists('appareilles');\n     }\n };\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('appareilles', function (Blueprint $table) {\n-            $table->id();\n-            $table->string('libeller');\n-            $table->text;\n-            $table->enum('etat',['en attente','traité','refusé'])->def;\n-            \n-\n-            $table->timestamps();\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('appareilles');\n-    }\n-};\n"
+                },
+                {
+                    "date": 1740229976305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n-            $table->text('description')->default;\n+            $table->text('description')->null();\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740230025458,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n-            $table->text('description')->null();\n+            $table->text('description')->nullable();\n             $table->enum('etat',['en attente','traité','refusé'])->def;\n             \n \n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1740230056181,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,9 @@\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n             $table->text('description')->nullable();\n-            $table->enum('etat',['en attente','traité','refusé'])->def;\n-            \n-\n+            $table->enum('etat',['en attente','traité','refusé']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740230109055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n             $table->text('description')->nullable();\n-            $table->enum('etat',['en attente','traité','refusé']);\n+            $table->enum('etat',['en attente']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740230115215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n             $table->text('description')->nullable();\n-            $table->enum('etat',['en attente']);\n+            $table->enum('etat',['fonctionnel']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740230120792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n             $table->text('description')->nullable();\n-            $table->enum('etat',['fonctionnel']);\n+            $table->enum('etat',['fonctionnel','hors']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740230157017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n             $table->string('libeller');\n             $table->text('description')->nullable();\n-            $table->enum('etat',['fonctionnel','hors']);\n+            $table->enum('etat',['fonctionnel','hors_services']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237290244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('appareilles', function (Blueprint $table) {\n             $table->id();\n-            $table->string('libeller');\n+            $table->string('libelle');\n             $table->text('description')->nullable();\n             $table->enum('etat',['fonctionnel','hors_services']);\n             $table->timestamps();\n         });\n"
+                }
+            ],
+            "date": 1740229311459,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('appareilles', function (Blueprint $table) {\n            $table->id();\n            $table->id();\n\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('appareilles');\n    }\n};\n"
+        }
+    ]
+}

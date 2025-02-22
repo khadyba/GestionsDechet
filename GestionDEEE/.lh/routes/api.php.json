@@ -1,0 +1,38 @@
+{
+    "sourceFile": "routes/api.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1740211114965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740211135810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,5 +23,6 @@\n Route::post('/login', [AuthController::class, 'login']);\n \n Route::middleware('auth:api')->group(function () {\n     Route::post('/logout', [AuthController::class, 'logout']);\n-    Route::get('/me', [AuthController::class, 'me']);\n\\ No newline at end of file\n+    Route::get('/me', [AuthController::class, 'me']);\n+}}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740211142902,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,5 +24,5 @@\n \n Route::middleware('auth:api')->group(function () {\n     Route::post('/logout', [AuthController::class, 'logout']);\n     Route::get('/me', [AuthController::class, 'me']);\n-}}\n\\ No newline at end of file\n+};\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740211161917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,11 @@\n Route::middleware('auth:sanctum')->get('/user', function (Request $request) {\n     return $request->user();\n });\n \n-\n Route::post('/register', [AuthController::class, 'register']);\n Route::post('/login', [AuthController::class, 'login']);\n \n Route::middleware('auth:api')->group(function () {\n     Route::post('/logout', [AuthController::class, 'logout']);\n     Route::get('/me', [AuthController::class, 'me']);\n-};\n\\ No newline at end of file\n+});\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740220450636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,5 +23,8 @@\n \n Route::middleware('auth:api')->group(function () {\n     Route::post('/logout', [AuthController::class, 'logout']);\n     Route::get('/me', [AuthController::class, 'me']);\n-});\n\\ No newline at end of file\n+});\n+\n+\n+Route::get('/swagger', [SwaggerController::class, 'showSwagger'])->name('swagger.index');\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740224833734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,4 @@\n     Route::post('/logout', [AuthController::class, 'logout']);\n     Route::get('/me', [AuthController::class, 'me']);\n });\n \n-\n-Route::get('/swagger', [SwaggerController::class, 'showSwagger'])->name('swagger.index');\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1740211114965,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Route;\n\n/*\n|--------------------------------------------------------------------------\n| API Routes\n|--------------------------------------------------------------------------\n|\n| Here is where you can register API routes for your application. These\n| routes are loaded by the RouteServiceProvider and all of them will\n| be assigned to the \"api\" middleware group. Make something great!\n|\n*/\n\nRoute::middleware('auth:sanctum')->get('/user', function (Request $request) {\n    return $request->user();\n});\n\n\nRoute::post('/register', [AuthController::class, 'register']);\nRoute::post('/login', [AuthController::class, 'login']);\n\nRoute::middleware('auth:api')->group(function () {\n    Route::post('/logout', [AuthController::class, 'logout']);\n    Route::get('/me', [AuthController::class, 'me']);"
+        }
+    ]
+}

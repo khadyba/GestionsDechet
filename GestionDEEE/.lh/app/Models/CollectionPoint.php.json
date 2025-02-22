@@ -1,0 +1,102 @@
+{
+    "sourceFile": "app/Models/CollectionPoint.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 21,
+            "patches": [
+                {
+                    "date": 1740242089657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740242094991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,5 +8,11 @@\n class CollectionPoint extends Model\n {\n     use HasFactory;\n     \n+    $table->id();\n+    $table->string('nom');\n+    $table->string('adresse');\n+    $table->string('coordonneesGPS');\n+    $table->boolean('entrepriseAgree')->default(false);\n+    $tabl\n }\n"
+                },
+                {
+                    "date": 1740242101961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \n class CollectionPoint extends Model\n {\n     use HasFactory;\n-    \n+    protected \n     $table->id();\n     $table->string('nom');\n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242122938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,9 @@\n \n class CollectionPoint extends Model\n {\n     use HasFactory;\n-    protected \n-    $table->id();\n-    $table->string('nom');\n+    protected 'nom');\n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n     $table->boolean('entrepriseAgree')->default(false);\n     $tabl\n"
+                },
+                {
+                    "date": 1740242150772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n \n class CollectionPoint extends Model\n {\n     use HasFactory;\n-    protected 'nom');\n+    \n+    protected 'nom'\n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n     $table->boolean('entrepriseAgree')->default(false);\n     $tabl\n"
+                },
+                {
+                    "date": 1740242155830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,11 @@\n \n class CollectionPoint extends Model\n {\n     use HasFactory;\n-    \n+\n+    protected $fillable = [\n+        $\n     protected 'nom'\n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n     $table->boolean('entrepriseAgree')->default(false);\n"
+                },
+                {
+                    "date": 1740242173207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        $\n+    ];\n     protected 'nom'\n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n     $table->boolean('entrepriseAgree')->default(false);\n"
+                },
+                {
+                    "date": 1740242179967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     use HasFactory;\n \n     protected $fillable = [\n     ];\n-    protected 'nom'\n+    protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n     $table->boolean('entrepriseAgree')->default(false);\n     $tabl\n"
+                },
+                {
+                    "date": 1740242185664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n+        'nom';\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242226272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'nom';\n+        'nom'\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242252346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'nom'\n+        'nom';\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242257546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'nom';\n+        'nom'\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242275174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'nom'\n+        'nom'',\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242280408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,10 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'nom'',\n+        'nom',\n+        ',\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242286436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,10 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'nom',\n-        ',\n+        ,\n+        ,\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242296279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,10 +10,10 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'nom',\n+        'adresse',\n         ,\n-        ,\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242306280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \n     protected $fillable = [\n         'nom',\n         'adresse',\n-        ,\n+        'coordonneesGPS',\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242329168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     protected $fillable = [\n         'nom',\n         'adresse',\n         'coordonneesGPS',\n+        'entrepriseAgree'\n     ];\n     protected \n     $table->string('adresse');\n     $table->string('coordonneesGPS');\n"
+                },
+                {
+                    "date": 1740242337761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,6 @@\n         'adresse',\n         'coordonneesGPS',\n         'entrepriseAgree'\n     ];\n-    protected \n-    $table->string('adresse');\n-    $table->string('coordonneesGPS');\n-    $table->boolean('entrepriseAgree')->default(false);\n-    $tabl\n+   \n }\n"
+                },
+                {
+                    "date": 1740242350595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,5 @@\n         'adresse',\n         'coordonneesGPS',\n         'entrepriseAgree'\n     ];\n-   \n-}\n+} \n"
+                },
+                {
+                    "date": 1740242434723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,6 +13,6 @@\n         'nom',\n         'adresse',\n         'coordonneesGPS',\n         'entrepriseAgree'\n-    ];\n+    ];  \n } \n"
+                },
+                {
+                    "date": 1740242469280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,8 @@\n         'adresse',\n         'coordonneesGPS',\n         'entrepriseAgree'\n     ];  \n+\n+    \n+\n } \n"
+                }
+            ],
+            "date": 1740242089657,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass CollectionPoint extends Model\n{\n    use HasFactory;\n    \n}\n"
+        }
+    ]
+}

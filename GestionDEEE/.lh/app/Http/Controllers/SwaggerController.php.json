@@ -1,0 +1,82 @@
+{
+    "sourceFile": "app/Http/Controllers/SwaggerController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1740220385594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740220415773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,7 +5,13 @@\n use Illuminate\\Http\\Request;\n \n class SwaggerController extends Controller\n {\n-    php artisan make:controller SwaggerController\n+    public function showSwagger()\n+    {\n+        // Définir l'URL de la documentation\n+        $urlToDocs = 'https://example.com/swagger/docs'; // Remplace par l'URL correcte ou dynamique\n \n+        // Passer la variable à la vue\n+        return view('swagger.index', compact('urlToDocs'));\n+    }\n }\n"
+                },
+                {
+                    "date": 1740224665232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,14 @@\n class SwaggerController extends Controller\n {\n     public function showSwagger()\n     {\n-        // Définir l'URL de la documentation\n-        $urlToDocs = 'https://example.com/swagger/docs'; // Remplace par l'URL correcte ou dynamique\n+        public function showSwagger()\n+    {\n+        // Définir l'URL de la documentation Swagger\n+        $urlToDocs = url('/api/docs'); // Remplace cette URL par celle de ton Swagger JSON\n \n-        // Passer la variable à la vue\n+        // Passer la variable à la vue Blade\n         return view('swagger.index', compact('urlToDocs'));\n     }\n+    }\n }\n"
+                },
+                {
+                    "date": 1740224678039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n use Illuminate\\Http\\Request;\n \n class SwaggerController extends Controller\n {\n-    public function showSwagger()\n-    {\n+   \n         public function showSwagger()\n     {\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs'); // Remplace cette URL par celle de ton Swagger JSON\n"
+                },
+                {
+                    "date": 1740224683104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,6 @@\n \n         // Passer la variable à la vue Blade\n         return view('swagger.index', compact('urlToDocs'));\n     }\n-    }\n }\n+\n"
+                },
+                {
+                    "date": 1740224692531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,19 @@\n+<?php\n+\n+namespace App\\Http\\Controllers;\n+\n+use Illuminate\\Http\\Request;\n+\n+class SwaggerController extends Controller\n+{\n+   \n+        public function showSwagger()\n+    {\n+        // Définir l'URL de la documentation Swagger\n+        $urlToDocs = url('/api/docs');\n+\n+        // Passer la variable à la vue Blade\n+        return view('swagger.index', compact('urlToDocs'));\n+    }\n+}\n+\n"
+                },
+                {
+                    "date": 1740224717634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,27 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return view('swagger.index', compact('urlToDocs'));\n+        return view('index', compact('urlToDocs'));\n     }\n }\n \n-<?php\n-\n-namespace App\\Http\\Controllers;\n-\n-use Illuminate\\Http\\Request;\n-\n-class SwaggerController extends Controller\n-{\n-   \n-        public function showSwagger()\n-    {\n-        // Définir l'URL de la documentation Swagger\n-        $urlToDocs = url('/api/docs'); // Remplace cette URL par celle de ton Swagger JSON\n-\n-        // Passer la variable à la vue Blade\n-        return view('swagger.index', compact('urlToDocs'));\n-    }\n-}\n-\n"
+                },
+                {
+                    "date": 1740225817984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return view('index', compact('urlToDocs'));\n+        return view('.index', compact('urlToDocs'));\n     }\n }\n \n"
+                },
+                {
+                    "date": 1740225823250,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return view('.index', compact('urlToDocs'));\n+        return view('vendor.index', compact('urlToDocs'));\n     }\n }\n \n"
+                },
+                {
+                    "date": 1740225829218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return view('vendor.index', compact('urlToDocs'));\n+        return view('vendor.l5.index', compact('urlToDocs'));\n     }\n }\n \n"
+                },
+                {
+                    "date": 1740225836798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return view('vendor.l5.index', compact('urlToDocs'));\n+        return view('vendor.l5-swagger.index', compact('urlToDocs'));\n     }\n }\n \n"
+                },
+                {
+                    "date": 1740225871883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return view('vendor.l5-swagger.index', compact('urlToDocs'));\n+        return views('vendor.l5-swagger.index', compact('urlToDocs'));\n     }\n }\n \n"
+                },
+                {
+                    "date": 1740226045475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,8 @@\n         // Définir l'URL de la documentation Swagger\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n-        return views('vendor.l5-swagger.index', compact('urlToDocs'));\n+        return view('vendor.l5-swagger.index', compact('urlToDocs'));\n     }\n }\n \n"
+                },
+                {
+                    "date": 1740226161846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n    \n         public function showSwagger()\n     {\n         // Définir l'URL de la documentation Swagger\n-        $urlToDocs = url('/api/docs');\n+         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n         return view('vendor.l5-swagger.index', compact('urlToDocs'));\n     }\n"
+                },
+                {
+                    "date": 1740226172190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,10 @@\n {\n    \n         public function showSwagger()\n     {\n-        // Définir l'URL de la documentation Swagger\n-         $urlToDocs = url('/api/docs');\n+         // Définir l'URL de la documentation Swagger\n+        $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n         return view('vendor.l5-swagger.index', compact('urlToDocs'));\n     }\n"
+                },
+                {
+                    "date": 1740226228605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,7 +13,8 @@\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n         return view('vendor.l5-swagger.index', compact('urlToDocs'));\n+        \n     }\n }\n \n"
+                },
+                {
+                    "date": 1740226234600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,7 @@\n         $urlToDocs = url('/api/docs');\n \n         // Passer la variable à la vue Blade\n         return view('vendor.l5-swagger.index', compact('urlToDocs'));\n-        \n     }\n }\n \n"
+                }
+            ],
+            "date": 1740220385594,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass SwaggerController extends Controller\n{\n    php artisan make:controller SwaggerController\n\n}\n"
+        }
+    ]
+}

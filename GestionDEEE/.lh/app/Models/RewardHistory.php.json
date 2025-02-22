@@ -1,0 +1,42 @@
+{
+    "sourceFile": "app/Models/RewardHistory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1740243307696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740243321109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'quantite',\n+        'q',\n        'description',\n        'pointsRécompense'\n     ];\n }\n"
+                },
+                {
+                    "date": 1740243329280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'q',\n+        '',\n        'description',\n        'pointsRécompense'\n     ];\n }\n"
+                },
+                {
+                    "date": 1740243337192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        '',\n+        'rewards_id',\n        'description',\n        'pointsRécompense'\n     ];\n }\n"
+                },
+                {
+                    "date": 1740243353965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,7 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'rewards_id',\n-       'description',\n-       'pointsRécompense'\n+       'users_id',\n     ];\n }\n"
+                },
+                {
+                    "date": 1740243394132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'rewards_id',\n-       'users_id',\n-    ];\n+        'users_id',\n+    ]; \n }\n"
+                },
+                {
+                    "date": 1740243399290,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,6 +11,7 @@\n \n     protected $fillable = [\n         'rewards_id',\n         'users_id',\n+        'dateObtention'\n     ]; \n }\n"
+                }
+            ],
+            "date": 1740243307696,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass RewardHistory extends Model\n{\n    use HasFactory;\n\n    protected $fillable = [\n        'quantite',\n       'description',\n       'pointsRécompense'\n    ];\n}\n"
+        }
+    ]
+}

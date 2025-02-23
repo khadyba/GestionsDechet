@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 17,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1740227931002,
@@ -76,6 +76,10 @@
                 {
                     "date": 1740244126130,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('prenom');\n             $table->string('email')->unique();\n-            $table->number('télephone')->unique();\n+            $table->string('télephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n             $table->enum('role',['cytoyen','entreprise','admin']);\n             $table->rememberToken();\n"
+                },
+                {
+                    "date": 1740268697677,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('prenom');\n             $table->string('email')->unique();\n-            $table->string('télephone')->unique();\n+            $table->string('telephone')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n             $table->string('password');\n             $table->enum('role',['cytoyen','entreprise','admin']);\n             $table->rememberToken();\n"
                 }
             ],
             "date": 1740227931002,

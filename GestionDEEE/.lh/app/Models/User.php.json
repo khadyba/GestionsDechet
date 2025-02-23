@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 16,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1740210963275,
@@ -72,6 +72,14 @@
                 {
                     "date": 1740239294558,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,5 +62,7 @@\n      public function reports()\n     {\n         return $this->hasMany(Report::class);\n     }\n+\n+    \n }\n"
+                },
+                {
+                    "date": 1740262767789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n      *\n      * @var array<int, string>\n      */\n     protected $fillable = [\n-        'name',\n+        'nom',\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n"
+                },
+                {
+                    "date": 1740268674786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     protected $fillable = [\n         'nom',\n         'prenom',\n         'email',\n-        'télephone',\n+        'telephone',\n         'password',\n         'role',\n     ];\n \n"
                 }
             ],
             "date": 1740210963275,

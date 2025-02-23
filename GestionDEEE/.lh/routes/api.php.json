@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 10,
             "patches": [
                 {
                     "date": 1740211114965,
@@ -28,6 +28,26 @@
                 {
                     "date": 1740224833734,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,4 @@\n     Route::post('/logout', [AuthController::class, 'logout']);\n     Route::get('/me', [AuthController::class, 'me']);\n });\n \n-\n-Route::get('/swagger', [SwaggerController::class, 'showSwagger'])->name('swagger.index');\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1740263331781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n Route::middleware('auth:sanctum')->get('/user', function (Request $request) {\n     return $request->user();\n });\n \n-Route::post('/register', [AuthController::class, 'register']);\n+Route::post('/register', [AuthController::class, 'register'])->;\n Route::post('/login', [AuthController::class, 'login']);\n \n Route::middleware('auth:api')->group(function () {\n     Route::post('/logout', [AuthController::class, 'logout']);\n"
+                },
+                {
+                    "date": 1740263337678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n Route::middleware('auth:sanctum')->get('/user', function (Request $request) {\n     return $request->user();\n });\n \n-Route::post('/register', [AuthController::class, 'register'])->;\n+Route::post('/register', [AuthController::class, 'register'])->be;\n Route::post('/login', [AuthController::class, 'login']);\n \n Route::middleware('auth:api')->group(function () {\n     Route::post('/logout', [AuthController::class, 'logout']);\n"
+                },
+                {
+                    "date": 1740263798013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+<?php\n+\n+use Illuminate\\Http\\Request;\n+use Illuminate\\Support\\Facades\\Route;\n+\n+\n+/*\n+|--------------------------------------------------------------------------\n+| API Routes\n+|--------------------------------------------------------------------------\n+|\n+| Here is where you can register API routes for your application. These\n+| routes are loaded by the RouteServiceProvider and all of them will\n+| be assigned to the \"api\" middleware group. Make something great!\n+|\n+*/\n+\n+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {\n+    return $request->user();\n+});\n+\n+Route::post('/register', [AuthController::class, 'register']);\n+Route::post('/login', [AuthController::class, 'login']);\n+\n+Route::middleware('auth:api')->group(function () {\n+    Route::post('/logout', [AuthController::class, 'logout']);\n+    Route::get('/me', [AuthController::class, 'me']);\n+});\n+\n"
+                },
+                {
+                    "date": 1740263997995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n <?php\n \n use Illuminate\\Http\\Request;\n use Illuminate\\Support\\Facades\\Route;\n+use App\\Http\\Controllers\\AuthController;\n+use App\\Http\\Controllers\\SwaggerController;\n \n \n /*\n |--------------------------------------------------------------------------\n@@ -26,32 +28,4 @@\n     Route::post('/logout', [AuthController::class, 'logout']);\n     Route::get('/me', [AuthController::class, 'me']);\n });\n \n-<?php\n-\n-use Illuminate\\Http\\Request;\n-use Illuminate\\Support\\Facades\\Route;\n-\n-/*\n-|--------------------------------------------------------------------------\n-| API Routes\n-|--------------------------------------------------------------------------\n-|\n-| Here is where you can register API routes for your application. These\n-| routes are loaded by the RouteServiceProvider and all of them will\n-| be assigned to the \"api\" middleware group. Make something great!\n-|\n-*/\n-\n-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {\n-    return $request->user();\n-});\n-\n-Route::post('/register', [AuthController::class, 'register'])->be;\n-Route::post('/login', [AuthController::class, 'login']);\n-\n-Route::middleware('auth:api')->group(function () {\n-    Route::post('/logout', [AuthController::class, 'logout']);\n-    Route::get('/me', [AuthController::class, 'me']);\n-});\n-\n"
+                },
+                {
+                    "date": 1740264354039,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,9 @@\n \n use Illuminate\\Http\\Request;\n use Illuminate\\Support\\Facades\\Route;\n use App\\Http\\Controllers\\AuthController;\n-use App\\Http\\Controllers\\SwaggerController;\n \n-\n /*\n |--------------------------------------------------------------------------\n | API Routes\n |--------------------------------------------------------------------------\n"
                 }
             ],
             "date": 1740211114965,

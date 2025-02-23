@@ -1,0 +1,434 @@
+{
+    "sourceFile": "app/Http/Controllers/AuthController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 104,
+            "patches": [
+                {
+                    "date": 1740211070414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740211079637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n  \n          return response()->json(['token' => $token]);\n      }\n  \n-     // Connexion\n+       // Connexion\n      public function login(Request $request)\n      {\n          $credentials = $request->only('email', 'password');\n  \n"
+                },
+                {
+                    "date": 1740211599930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n \n+\n class AuthController extends Controller\n {\n      // Inscription\n      public function register(Request $request)\n"
+                },
+                {
+                    "date": 1740211626526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,21 @@\n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n \n-\n+/**\n+ * @OA\\Info(\n+ *      version=\"1.0.0\",\n+ *      title=\"API de gestion des déchets électroniques\",\n+ *      description=\"Documentation de l'API avec Swagger\",\n+ *      @OA\\Contact(\n+ *          email=\"support@example.com\"\n+ *      )\n+ * )\n+ */\n class AuthController extends Controller\n {\n+    \n      // Inscription\n      public function register(Request $request)\n      {\n          $request->validate([\n"
+                },
+                {
+                    "date": 1740211651186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,26 @@\n  * )\n  */\n class AuthController extends Controller\n {\n-    \n+     /**\n+     * @OA\\Post(\n+     *     path=\"/api/register\",\n+     *     summary=\"Inscription d'un nouvel utilisateur\",\n+     *     tags={\"Authentification\"},\n+     *     @OA\\RequestBody(\n+     *         required=true,\n+     *         @OA\\JsonContent(\n+     *             required={\"name\",\"email\",\"password\"},\n+     *             @OA\\Property(property=\"name\", type=\"string\", example=\"Khady\"),\n+     *             @OA\\Property(property=\"email\", type=\"string\", format=\"email\", example=\"khady@example.com\"),\n+     *             @OA\\Property(property=\"password\", type=\"string\", format=\"password\", example=\"motdepasse\")\n+     *         ),\n+     *     ),\n+     *     @OA\\Response(response=201, description=\"Utilisateur créé avec succès\"),\n+     *     @OA\\Response(response=400, description=\"Erreur de validation\"),\n+     * )\n+     */\n      // Inscription\n      public function register(Request $request)\n      {\n          $request->validate([\n@@ -36,9 +53,9 @@\n  \n          return response()->json(['token' => $token]);\n      }\n  \n-       // Connexion\n+       \n      public function login(Request $request)\n      {\n          $credentials = $request->only('email', 'password');\n  \n"
+                },
+                {
+                    "date": 1740261460347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n      // Inscription\n      public function register(Request $request)\n      {\n          $request->validate([\n-             'name' => 'required|string|max:255',\n+             'nom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n              'password' => 'required|string|min:6',\n          ]);\n  \n@@ -53,9 +53,25 @@\n  \n          return response()->json(['token' => $token]);\n      }\n  \n-       \n+         /**\n+     * @OA\\Post(\n+     *     path=\"/api/login\",\n+     *     summary=\"Connexion utilisateur\",\n+     *     tags={\"Authentification\"},\n+     *     @OA\\RequestBody(\n+     *         required=true,\n+     *         @OA\\JsonContent(\n+     *             required={\"email\",\"password\"},\n+     *             @OA\\Property(property=\"email\", type=\"string\", format=\"email\", example=\"khady@example.com\"),\n+     *             @OA\\Property(property=\"password\", type=\"string\", format=\"password\", example=\"motdepasse\")\n+     *         ),\n+     *     ),\n+     *     @OA\\Response(response=200, description=\"Connexion réussie\"),\n+     *     @OA\\Response(response=401, description=\"Identifiants invalides\"),\n+     * )\n+     */\n      public function login(Request $request)\n      {\n          $credentials = $request->only('email', 'password');\n  \n"
+                },
+                {
+                    "date": 1740263065724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,8 +38,9 @@\n      public function register(Request $request)\n      {\n          $request->validate([\n              'nom' => 'required|string|max:255',\n+             \n              'email' => 'required|string|email|max:255|unique:users',\n              'password' => 'required|string|min:6',\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740263070898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,10 @@\n      public function register(Request $request)\n      {\n          $request->validate([\n              'nom' => 'required|string|max:255',\n-             \n+             'prenom' => 'required|string|max:255',\n+\n              'email' => 'required|string|email|max:255|unique:users',\n              'password' => 'required|string|min:6',\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740263076898,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,10 @@\n      {\n          $request->validate([\n              'nom' => 'required|string|max:255',\n              'prenom' => 'required|string|max:255',\n-\n              'email' => 'required|string|email|max:255|unique:users',\n+             \n              'password' => 'required|string|min:6',\n          ]);\n  \n          $user = User::create([\n"
+                },
+                {
+                    "date": 1740263097702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n          $request->validate([\n              'nom' => 'required|string|max:255',\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n-             \n+             'telephone'\n              'password' => 'required|string|min:6',\n          ]);\n  \n          $user = User::create([\n"
+                },
+                {
+                    "date": 1740263104755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n          $request->validate([\n              'nom' => 'required|string|max:255',\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n-             'telephone'\n+             'telephone' =>'',\n              'password' => 'required|string|min:6',\n          ]);\n  \n          $user = User::create([\n"
+                },
+                {
+                    "date": 1740263112965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n          $request->validate([\n              'nom' => 'required|string|max:255',\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n-             'telephone' =>'',\n+             'telephone' =>'requi',\n              'password' => 'required|string|min:6',\n          ]);\n  \n          $user = User::create([\n"
+                },
+                {
+                    "date": 1740263157822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n          $request->validate([\n              'nom' => 'required|string|max:255',\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n-             'telephone' =>'requi',\n+             '' =>'required',\n              'password' => 'required|string|min:6',\n          ]);\n  \n          $user = User::create([\n"
+                },
+                {
+                    "date": 1740264608900,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,11 @@\n          $request->validate([\n              'nom' => 'required|string|max:255',\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n-             '' =>'required',\n+             'télephone' =>'required',\n              'password' => 'required|string|min:6',\n+             \n          ]);\n  \n          $user = User::create([\n              'name' => $request->name,\n"
+                },
+                {
+                    "date": 1740264614052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n              'télephone' =>'required',\n              'password' => 'required|string|min:6',\n-             \n+             'role'\n          ]);\n  \n          $user = User::create([\n              'name' => $request->name,\n"
+                },
+                {
+                    "date": 1740264620630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n              'télephone' =>'required',\n              'password' => 'required|string|min:6',\n-             'role'\n+             'role'=>''\n          ]);\n  \n          $user = User::create([\n              'name' => $request->name,\n"
+                },
+                {
+                    "date": 1740264626253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n              'prenom' => 'required|string|max:255',\n              'email' => 'required|string|email|max:255|unique:users',\n              'télephone' =>'required',\n              'password' => 'required|string|min:6',\n-             'role'=>''\n+             'role'=>'required'\n          ]);\n  \n          $user = User::create([\n              'name' => $request->name,\n"
+                },
+                {
+                    "date": 1740264666926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n              'role'=>'required'\n          ]);\n  \n          $user = User::create([\n-             'name' => $request->name,\n+             'no' => $request->name,\n              'email' => $request->email,\n              'password' => Hash::make($request->password),\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740264680821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,11 @@\n              'role'=>'required'\n          ]);\n  \n          $user = User::create([\n-             'no' => $request->name,\n+             'nom' => $request->name,\n+             'nom' => $request->name,\n+\n              'email' => $request->email,\n              'password' => Hash::make($request->password),\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740264690893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,11 +46,10 @@\n              'role'=>'required'\n          ]);\n  \n          $user = User::create([\n+             'nom' => $request->nom,\n              'nom' => $request->name,\n-             'nom' => $request->name,\n-\n              'email' => $request->email,\n              'password' => Hash::make($request->password),\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740264695980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n          ]);\n  \n          $user = User::create([\n              'nom' => $request->nom,\n-             'nom' => $request->name,\n+             'nom' => $request->,\n              'email' => $request->email,\n              'password' => Hash::make($request->password),\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740264706248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n          ]);\n  \n          $user = User::create([\n              'nom' => $request->nom,\n-             'nom' => $request->,\n+             'prenom' => $request->prenom,\n              'email' => $request->email,\n              'password' => Hash::make($request->password),\n          ]);\n  \n"
+                },
+                {
+                    "date": 1740264718393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,9 @@\n          $user = User::create([\n              'nom' => $request->nom,\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n+             'prenom' => $request->prenom,\n              'password' => Hash::make($request->password),\n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n"
+                },
+                {
+                    "date": 1740264740179,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n          $user = User::create([\n              'nom' => $request->nom,\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n-             'prenom' => $request->prenom,\n+             'télephone'' => $request->prenom,\n              'password' => Hash::make($request->password),\n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n"
+                },
+                {
+                    "date": 1740264746839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n          $user = User::create([\n              'nom' => $request->nom,\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n-             'télephone'' => $request->prenom,\n+             'télephone' => $request->,\n              'password' => Hash::make($request->password),\n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n"
+                },
+                {
+                    "date": 1740264762436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,10 +49,11 @@\n          $user = User::create([\n              'nom' => $request->nom,\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n-             'télephone' => $request->,\n+             'télephone' => $request->télephone,\n              'password' => Hash::make($request->password),\n+             \n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n  \n"
+                },
+                {
+                    "date": 1740264767539,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n              'télephone' => $request->télephone,\n              'password' => Hash::make($request->password),\n-             \n+             'role')\n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n  \n"
+                },
+                {
+                    "date": 1740264780682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n              'télephone' => $request->télephone,\n              'password' => Hash::make($request->password),\n-             'role')\n+             'role'=> $request->prenom,\n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n  \n"
+                },
+                {
+                    "date": 1740264787251,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n              'prenom' => $request->prenom,\n              'email' => $request->email,\n              'télephone' => $request->télephone,\n              'password' => Hash::make($request->password),\n-             'role'=> $request->prenom,\n+             'role'=> $request->\n          ]);\n  \n          $token = JWTAuth::fromUser($user);\n  \n"
+                },
+                {
+                    "date": 1740265026423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,32 +35,31 @@\n      * )\n      */\n      // Inscription\n      public function register(Request $request)\n-     {\n-         $request->validate([\n-             'nom' => 'required|string|max:255',\n-             'prenom' => 'required|string|max:255',\n-             'email' => 'required|string|email|max:255|unique:users',\n-             'télephone' =>'required',\n-             'password' => 'required|string|min:6',\n-             'role'=>'required'\n-         ]);\n- \n-         $user = User::create([\n-             'nom' => $request->nom,\n-             'prenom' => $request->prenom,\n-             'email' => $request->email,\n-             'télephone' => $request->télephone,\n-             'password' => Hash::make($request->password),\n-             'role'=> $request->\n-         ]);\n- \n-         $token = JWTAuth::fromUser($user);\n- \n-         return response()->json(['token' => $token]);\n-     }\n- \n+{\n+    $request->validate([\n+        'nom' => 'required|string|max:255',\n+        'prenom' => 'required|string|max:255',\n+        'email' => 'required|string|email|max:255|unique:users',\n+        'télephone' => 'required',\n+        'password' => 'required|string|min:6',\n+        'role' => 'required'\n+    ]);\n+\n+    User::create([\n+        'nom' => $request->nom,\n+        'prenom' => $request->prenom,\n+        'email' => $request->email,\n+        'télephone' => $request->télephone,\n+        'password' => Hash::make($request->password),\n+        'role' => $request->role\n+    ]);\n+\n+    return response()->json([\n+        'message' => 'Compte créé avec succès.'\n+    ], 201);\n+}\n          /**\n      * @OA\\Post(\n      *     path=\"/api/login\",\n      *     summary=\"Connexion utilisateur\",\n"
+                },
+                {
+                    "date": 1740265741190,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,11 +54,10 @@\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n \n-    return response()->json([\n-        'message' => 'Compte créé avec succès.'\n-    ], 201);\n+    return response()->json(['message' => 'Compte créé avec succès.'], 201);\n+\n }\n          /**\n      * @OA\\Post(\n      *     path=\"/api/login\",\n"
+                },
+                {
+                    "date": 1740266563189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n+use App\\Models\\User;\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740266818635,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,7 @@\n <?php\n \n namespace App\\Http\\Controllers;\n-\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n \n /**\n"
+                },
+                {
+                    "date": 1740267125589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n         'télephone' => 'required',\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n-\n+     d\n     User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n"
+                },
+                {
+                    "date": 1740267132344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,17 +44,18 @@\n         'télephone' => 'required',\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n-     d\n+     \n     User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n         'télephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n+    dd()\n \n     return response()->json(['message' => 'Compte créé avec succès.'], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740267145259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,17 +45,17 @@\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n      \n-    User::create([\n+     User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n         'télephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-    dd()\n+    dd($user)\n \n     return response()->json(['message' => 'Compte créé avec succès.'], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740267152668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,17 +45,17 @@\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n      \n-     User::create([\n+    $user=  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n         'télephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-    dd($user)\n+    dd($user);\n \n     return response()->json(['message' => 'Compte créé avec succès.'], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740267194389,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n      \n-    $user=  User::create([\n+    $use r=  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n         'télephone' => $request->télephone,\n"
+                },
+                {
+                    "date": 1740267804001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,9 @@\n      * )\n      */\n      // Inscription\n      public function register(Request $request)\n+     \n {\n     $request->validate([\n         'nom' => 'required|string|max:255',\n         'prenom' => 'required|string|max:255',\n@@ -45,9 +46,9 @@\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n      \n-    $use r=  User::create([\n+    $user =  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n         'télephone' => $request->télephone,\n"
+                },
+                {
+                    "date": 1740267854234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n      * )\n      */\n      // Inscription\n      public function register(Request $request)\n-     \n+\n {\n     $request->validate([\n         'nom' => 'required|string|max:255',\n         'prenom' => 'required|string|max:255',\n@@ -45,9 +45,10 @@\n         'télephone' => 'required',\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n-     \n+    \n+    dd($request->all()); // Stoppe l'exécution et affiche les données reçues\n     $user =  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n"
+                },
+                {
+                    "date": 1740267891732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,8 @@\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n     \n-    dd($request->all()); // Stoppe l'exécution et affiche les données reçues\n     $user =  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n"
+                },
+                {
+                    "date": 1740268366312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n         'télephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-    dd($user);\n+    dd( $request->role);\n \n     return response()->json(['message' => 'Compte créé avec succès.'], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740268438293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n         'télephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-    dd( $request->role);\n+    dd($request->role);\n \n     return response()->json(['message' => 'Compte créé avec succès.'], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740269043587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n         'télephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-    dd($request->role);\n+    // dd($request->role);\n \n     return response()->json(['message' => 'Compte créé avec succès.'], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740269516608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n \n-    return response()->json(['message' => 'Compte créé avec succès.'], 201);\n+    return response()->json(['message' => 'Compte créé avec succès.',], 201);\n \n }\n          /**\n      * @OA\\Post(\n"
+                },
+                {
+                    "date": 1740269524977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n \n-    return response()->json(['message' => 'Compte créé avec succès.',], 201);\n+    return response()->json(['message' => 'Compte créé avec succès.','data'], 201);\n \n }\n          /**\n      * @OA\\Post(\n"
+                },
+                {
+                    "date": 1740269531701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n \n-    return response()->json(['message' => 'Compte créé avec succès.','data'], 201);\n+    return response()->json(['message' => 'Compte créé avec succès.','data'=>$], 201);\n \n }\n          /**\n      * @OA\\Post(\n"
+                },
+                {
+                    "date": 1740269777754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     $request->validate([\n         'nom' => 'required|string|max:255',\n         'prenom' => 'required|string|max:255',\n         'email' => 'required|string|email|max:255|unique:users',\n-        'télephone' => 'required',\n+        'telephone' => 'required',\n         'password' => 'required|string|min:6',\n         'role' => 'required'\n     ]);\n     \n@@ -56,9 +56,9 @@\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n \n-    return response()->json(['message' => 'Compte créé avec succès.','data'=>$], 201);\n+    return response()->json(['message' => 'Compte créé avec succès.','data'=>$user], 201);\n \n }\n          /**\n      * @OA\\Post(\n"
+                },
+                {
+                    "date": 1740269783909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n     $user =  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n-        'télephone' => $request->télephone,\n+        't\"lephone' => $request->télephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n"
+                },
+                {
+                    "date": 1740269799260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n     $user =  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n-        't\"lephone' => $request->télephone,\n+        'telephone' => $request->tlephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n"
+                },
+                {
+                    "date": 1740269844455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n \n+\n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n  *      title=\"API de gestion des déchets électroniques\",\n@@ -50,9 +51,9 @@\n     $user =  User::create([\n         'nom' => $request->nom,\n         'prenom' => $request->prenom,\n         'email' => $request->email,\n-        'telephone' => $request->tlephone,\n+        'telephone' => $request->telephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n     // dd($request->role);\n"
+                },
+                {
+                    "date": 1740269849668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n \n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n+use \n \n-\n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n  *      title=\"API de gestion des déchets électroniques\",\n"
+                },
+                {
+                    "date": 1740269863877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n-use \n+use App\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740269869540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n-use App\n+use App/fa\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740269974975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,11 @@\n \n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n-use App/fa\n \n+\n+\n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n  *      title=\"API de gestion des déchets électroniques\",\n"
+                },
+                {
+                    "date": 1740270101068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n \n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n+use Illuminate\\Support\\Facades\\Hash;\n \n \n-\n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n  *      title=\"API de gestion des déchets électroniques\",\n@@ -56,9 +56,8 @@\n         'telephone' => $request->telephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-    // dd($request->role);\n \n     return response()->json(['message' => 'Compte créé avec succès.','data'=>$user], 201);\n \n }\n"
+                },
+                {
+                    "date": 1740270275664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n+use\n \n-\n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n  *      title=\"API de gestion des déchets électroniques\",\n@@ -56,9 +56,8 @@\n         'telephone' => $request->telephone,\n         'password' => Hash::make($request->password),\n         'role' => $request->role\n     ]);\n-\n     return response()->json(['message' => 'Compte créé avec succès.','data'=>$user], 201);\n \n }\n          /**\n"
+                },
+                {
+                    "date": 1740270302912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use\n+use App\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270308789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\n+use App/H\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270314972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App/H\n+use App/Htp/\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270329305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App/Htp/\n+use App\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270336485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\n+use App\\Hpp\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270346956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\\Hpp\n+use App\\Hpp\\\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270398570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\\Hpp\\\n+use App\\Hpp\\Con\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270415583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\\Hpp\\Con\n+use App\\Hpp\\Controllers\\\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270420765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\\Hpp\\Controllers\\\n+use App\\Hpp\\Controllers\\JwtA\n \n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n"
+                },
+                {
+                    "date": 1740270621359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,11 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\\Hpp\\Controllers\\JwtA\n+use App\\Hpp\\Controllers\\JwtAuth;\n \n+\n /**\n  * @OA\\Info(\n  *      version=\"1.0.0\",\n  *      title=\"API de gestion des déchets électroniques\",\n"
+                },
+                {
+                    "date": 1740270627159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n namespace App\\Http\\Controllers;\n use Illuminate\\Http\\Request;\n use App\\Models\\User;\n use Illuminate\\Support\\Facades\\Hash;\n-use App\\Hpp\\Controllers\\JwtAuth;\n+use Tymon\\JWTAuth\\Facades\\JWTAuth;\n \n \n /**\n  * @OA\\Info(\n"
+                },
+                {
+                    "date": 1740271337494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,18 +77,18 @@\n      *     @OA\\Response(response=200, description=\"Connexion réussie\"),\n      *     @OA\\Response(response=401, description=\"Identifiants invalides\"),\n      * )\n      */\n-     public function login(Request $request)\n-     {\n-         $credentials = $request->only('email', 'password');\n+    //  public function login(Request $request)\n+    //  {\n+    //      $credentials = $request->only('email', 'password');\n  \n-         if (!$token = JWTAuth::attempt($credentials)) {\n-             return response()->json(['error' => 'Unauthorized'], 401);\n-         }\n+    //      if (!$token = JWTAuth::attempt($credentials)) {\n+    //          return response()->json(['error' => 'Unauthorized'], 401);\n+    //      }\n  \n-         return response()->json(['token' => $token]);\n-     }\n+    //      return response()->json(['token' => $token]);\n+    //  }\n  \n      // Déconnexion\n      public function logout()\n      {\n"
+                },
+                {
+                    "date": 1740271343561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,8 +88,19 @@\n  \n     //      return response()->json(['token' => $token]);\n     //  }\n  \n+    public function login(Request $request){\n+\n+        $loginUserData = $request->validate([\n+          'email'=>'required|string|email',\n+          'password'=>'required|min:6|max:20'\n+       ]);\n+        $user = User::where('email',$loginUserData['email'])->first();\n+            if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n+               return response()->json([\n+               'message' => 'E-mail ou mot de passe incorrecte.'\n+               ],4\n      // Déconnexion\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271355586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4\n+               ],4}\n      // Déconnexion\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271368289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4}\n+               ],4}}:\n      // Déconnexion\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271374139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4}}:\n+               ],4}};\n      // Déconnexion\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271392108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,10 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4}};\n+               ],4\n+            }};\n      // Déconnexion\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n@@ -111,5 +112,5 @@\n      public function me()\n      {\n          return response()->json(JWTAuth::user());\n      }\n-}\n+}}\n"
+                },
+                {
+                    "date": 1740271403280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n-            }};\n+            }\n      // Déconnexion\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271433785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,10 +99,10 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n-            }\n-     // Déconnexion\n+            };\n+   \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271439072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,10 +99,10 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n-            };\n-   \n+            }\n+\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271445890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n-            }\n+            }}\n \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271458673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,8 +100,9 @@\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n             }}\n+        };\n \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271479002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,8 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n-            }}\n         };\n \n      public function logout()\n      {\n"
+                },
+                {
+                    "date": 1740271486811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4\n+               ],4;\n         };\n \n      public function logout()\n      {\n"
+                },
+                {
+                    "date": 1740271499196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4;\n-        };\n+        }\n \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271516861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,10 +98,11 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4;\n+               ],4\n         }\n+        \n \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271523123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ],4\n         }\n-        \n+    }\n \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271531614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,11 +98,10 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4\n-        }\n-    }\n+               ],4}\n+    }}\n \n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n"
+                },
+                {
+                    "date": 1740271547553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n         $user = User::where('email',$loginUserData['email'])->first();\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4}\n+               ],4\n     }}\n \n      public function logout()\n      {\n"
+                },
+                {
+                    "date": 1740271561061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,21 +88,10 @@\n  \n     //      return response()->json(['token' => $token]);\n     //  }\n  \n-    public function login(Request $request){\n+  \n \n-        $loginUserData = $request->validate([\n-          'email'=>'required|string|email',\n-          'password'=>'required|min:6|max:20'\n-       ]);\n-        $user = User::where('email',$loginUserData['email'])->first();\n-            if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n-               return response()->json([\n-               'message' => 'E-mail ou mot de passe incorrecte.'\n-               ],4\n-    }}\n-\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271568804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -90,8 +90,13 @@\n     //  }\n  \n   \n \n+\n+\n+\n+    \n+\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n@@ -101,5 +106,5 @@\n      public function me()\n      {\n          return response()->json(JWTAuth::user());\n      }\n-}}\n+}\n"
+                },
+                {
+                    "date": 1740271584314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,14 +89,24 @@\n     //      return response()->json(['token' => $token]);\n     //  }\n  \n   \n+    public function login(Request $request){\n \n+        $loginUserData = $request->validate([\n+          'email'=>'required|string|email',\n+          'password'=>'required|min:6|max:20'\n+       ]);\n+        $user = User::where('email',$loginUserData['email'])->first();\n+            if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n+               return response()->json([\n+               'message' => 'E-mail ou mot de passe incorrecte.'\n+               ]);\n \n \n \n-    \n \n+\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271592994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,8 +100,9 @@\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ]);\n+            }\n \n \n \n \n"
+                },
+                {
+                    "date": 1740271599411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -101,13 +101,13 @@\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ]);\n             }\n+        }\n \n \n \n \n-\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271672798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -96,8 +96,9 @@\n           'email'=>'required|string|email',\n           'password'=>'required|min:6|max:20'\n        ]);\n         $user = User::where('email',$loginUserData['email'])->first();\n+        \n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.'\n                ]);\n"
+                },
+                {
+                    "date": 1740271688201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -96,14 +96,17 @@\n           'email'=>'required|string|email',\n           'password'=>'required|min:6|max:20'\n        ]);\n         $user = User::where('email',$loginUserData['email'])->first();\n-        \n+\n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n-               'message' => 'E-mail ou mot de passe incorrecte.'\n+               'message' => 'E-mail ou mot de passe incorrecte.',\n                ]);\n             }\n+\n+\n+\n         }\n \n \n \n"
+                },
+                {
+                    "date": 1740271694741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,8 +100,9 @@\n \n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n+                ''\n                ]);\n             }\n \n \n"
+                },
+                {
+                    "date": 1740271703701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n \n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n-                ''\n+                'user'=>\n                ]);\n             }\n \n \n"
+                },
+                {
+                    "date": 1740271709524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n \n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n-                'user'=>\n+                'user'=>$\n                ]);\n             }\n \n \n"
+                },
+                {
+                    "date": 1740271744337,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,9 +100,9 @@\n \n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n-                'user'=>$\n+               \n                ]);\n             }\n \n \n"
+                },
+                {
+                    "date": 1740271752097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -100,11 +100,11 @@\n \n             if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n-               \n                ]);\n             }\n+            \n \n \n \n         }\n"
+                },
+                {
+                    "date": 1740271762055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,9 @@\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n                ]);\n             }\n-            \n+            'user'=>$user;\n \n \n \n         }\n"
+                },
+                {
+                    "date": 1740271784606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,12 +102,19 @@\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n                ]);\n             }\n-            'user'=>$user;\n+            \n \n \n+            $token = $user->createToken($user->name.'-AuthToken')->plainTextToken;\n+           return response()->json([\n+           'access_token' => $token,\n+           'user' => $user\n+       ]);\n \n+\n+\n         }\n \n \n \n"
+                },
+                {
+                    "date": 1740271806422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,37 +89,13 @@\n     //      return response()->json(['token' => $token]);\n     //  }\n  \n   \n-    public function login(Request $request){\n+   \n \n-        $loginUserData = $request->validate([\n-          'email'=>'required|string|email',\n-          'password'=>'required|min:6|max:20'\n-       ]);\n-        $user = User::where('email',$loginUserData['email'])->first();\n \n-            if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n-               return response()->json([\n-               'message' => 'E-mail ou mot de passe incorrecte.',\n-               ]);\n-            }\n-            \n \n \n-            $token = $user->createToken($user->name.'-AuthToken')->plainTextToken;\n-           return response()->json([\n-           'access_token' => $token,\n-           'user' => $user\n-       ]);\n-\n-\n-\n-        }\n-\n-\n-\n-\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271816216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,9 +89,9 @@\n     //      return response()->json(['token' => $token]);\n     //  }\n  \n   \n-   \n+           \n \n \n \n \n"
+                },
+                {
+                    "date": 1740271847809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,9 +89,9 @@\n     //      return response()->json(['token' => $token]);\n     //  }\n  \n   \n-           \n+   \n \n \n \n \n"
+                },
+                {
+                    "date": 1740271861588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -89,13 +89,33 @@\n     //      return response()->json(['token' => $token]);\n     //  }\n  \n   \n-   \n+    public function login(Request $request){\n \n+        $loginUserData = $request->validate([\n+          'email'=>'required|string|email',\n+          'password'=>'required|min:6|max:20'\n+       ]);\n+        $user = User::where('email',$loginUserData['email'])->first();\n \n+            if(!$user || !Hash::check($loginUserData['password'],$user->password)){\n+               return response()->json([\n+               'message' => 'E-mail ou mot de passe incorrecte.',\n+               ]);\n+            }\n+            \n \n \n+            \n+\n+\n+\n+        }\n+\n+\n+\n+\n      public function logout()\n      {\n          JWTAuth::invalidate(JWTAuth::getToken());\n          return response()->json(['message' => 'Déconnecté avec succès']);\n"
+                },
+                {
+                    "date": 1740271869126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,8 @@\n                return response()->json([\n                'message' => 'E-mail ou mot de passe incorrecte.',\n                ]);\n             }\n-            \n \n \n \n         }\n"
+                }
+            ],
+            "date": 1740211070414,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass AuthController extends Controller\n{\n     // Inscription\n     public function register(Request $request)\n     {\n         $request->validate([\n             'name' => 'required|string|max:255',\n             'email' => 'required|string|email|max:255|unique:users',\n             'password' => 'required|string|min:6',\n         ]);\n \n         $user = User::create([\n             'name' => $request->name,\n             'email' => $request->email,\n             'password' => Hash::make($request->password),\n         ]);\n \n         $token = JWTAuth::fromUser($user);\n \n         return response()->json(['token' => $token]);\n     }\n \n     // Connexion\n     public function login(Request $request)\n     {\n         $credentials = $request->only('email', 'password');\n \n         if (!$token = JWTAuth::attempt($credentials)) {\n             return response()->json(['error' => 'Unauthorized'], 401);\n         }\n \n         return response()->json(['token' => $token]);\n     }\n \n     // Déconnexion\n     public function logout()\n     {\n         JWTAuth::invalidate(JWTAuth::getToken());\n         return response()->json(['message' => 'Déconnecté avec succès']);\n     }\n \n     // Obtenir les infos de l'utilisateur authentifié\n     public function me()\n     {\n         return response()->json(JWTAuth::user());\n     }\n}\n"
+        }
+    ]
+}

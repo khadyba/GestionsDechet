@@ -1,0 +1,98 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_121851_create_collection_points_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1740234055531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740234067706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n-            $table->id();\n+            $table->string();\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234072998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,10 @@\n     public function up(): void\n     {\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n-            $table->string();\n+            $table->st\n+            ring('nom');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234081257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,11 @@\n     public function up(): void\n     {\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n-            $table->st\n-            ring('nom');\n-\n+            $table->string('nom');\n+            $table->string('nom');\n+             \n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234087218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n     {\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n-            $table->string('nom');\n+            $table->string('adresse');\n+            \n              \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234097698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,10 @@\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n-            \n+            $table->string('coordonnée');\n+\n              \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234115453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n-            $table->string('coordonnée');\n+            $table->string('coordonnéesGPS');\n \n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234133312,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n+            \n \n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234138733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            \n+            $\n \n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234145838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $\n+            $table->bo\n \n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234152647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->bo\n+            $table->boolean\n \n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234163530,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean\n+            $table->boolean('entrepriseAgréé')\n \n              \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234171379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgréé')\n-\n-             \n+            $table->boolean('entrepriseAgréé');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237719418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgréé');\n+            $table->boolean('entrepriseAgree');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237749507,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree');\n+            $table->boolean('entrepriseAgree')-<;\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237757968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree')-<;\n+            $table->boolean('entrepriseAgree')->default;\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237764658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree')->default;\n+            $table->boolean('entrepriseAgree')->default('');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237779561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree')->default('');\n+            $table->boolean('entrepriseAgree')->d;\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237786727,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree')->d;\n+            $table->boolean('entrepriseAgree')->default;\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237792743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree')->default;\n+            $table->boolean('entrepriseAgree')->default(fals);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237808640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,10 @@\n         Schema::create('collection_points', function (Blueprint $table) {\n             $table->id();\n             $table->string('nom');\n             $table->string('adresse');\n-            $table->string('coordonnéesGPS');\n-            $table->boolean('entrepriseAgree')->default(fals);\n+            $table->string('coordonneesGPS');\n+            $table->boolean('entrepriseAgree')->default(false);\n             $table->timestamps();\n         });\n     }\n \n"
+                }
+            ],
+            "date": 1740234055531,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('collection_points', function (Blueprint $table) {\n            $table->id();\n            $table->id();\n\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('collection_points');\n    }\n};\n"
+        }
+    ]
+}

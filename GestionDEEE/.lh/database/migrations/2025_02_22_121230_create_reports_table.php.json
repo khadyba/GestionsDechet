@@ -1,0 +1,230 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_121230_create_reports_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 53,
+            "patches": [
+                {
+                    "date": 1740228406374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740228413851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            \n+            §table\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228423511,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            §table\n+            table\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228430637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            table\n+            ./§table\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228435970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            ./§table\n+            table\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228445327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,28 @@\n+<?php\n+\n+use Illuminate\\Database\\Migrations\\Migration;\n+use Illuminate\\Database\\Schema\\Blueprint;\n+use Illuminate\\Support\\Facades\\Schema;\n+\n+return new class extends Migration\n+{\n+    /**\n+     * Run the migrations.\n+     */\n+    public function up(): void\n+    {\n+        Schema::create('reports', function (Blueprint $table) {\n+            $table->id();\n+            $table->\n+            $table->timestamps();\n+        });\n+    }\n+\n+    /**\n+     * Reverse the migrations.\n+     */\n+    public function down(): void\n+    {\n+        Schema::dropIfExists('reports');\n+    }\n+};\n"
+                },
+                {
+                    "date": 1740228452991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            $table->\n+            $table->string()\n             $table->timestamps();\n         });\n     }\n \n@@ -25,32 +25,4 @@\n     {\n         Schema::dropIfExists('reports');\n     }\n };\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('reports', function (Blueprint $table) {\n-            $table->id();\n-            table\n-            $table->timestamps();\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('reports');\n-    }\n-};\n"
+                },
+                {
+                    "date": 1740228460098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            $table->string()\n+            $table->string('quantité')\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228466600,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            $table->string('quantité')\n+            $table->string('quantité');\n+            $table->string('quantité');\n+\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228483016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->string('quantité');\n+            $table->enum('quantité');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228489444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->enum('quantité');\n+            $table->enum('quantité',[]);\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228499850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->enum('quantité',[]);\n+            $table->enum('quantité',['fonctionnel']);\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228505170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->enum('quantité',['fonctionnel']);\n+            $table->enum('quantité',['fonctionnel','hor']);\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228510980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->enum('quantité',['fonctionnel','hor']);\n+            $table->enum('quantité',['fonctionnel','hors_services']);\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740228528928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n-\n+            \n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228534494,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n-            \n+            $table\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228543311,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n-            $table\n+            $table->string\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228549282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n-            $table->string\n+            $table->string('')\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228558145,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n-            $table->string('')\n+            $table->string('adresse')\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228614550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,10 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n-            $table->string('adresse')\n+            $table->string('adresse');\n+            *\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228620472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n-            *\n+            $table->\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228625695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n-            $table->\n+            $table->string('')\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228631403,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n-            $table->string('')\n+            $table->string('coordonnéesGPS ')\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228661230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,10 @@\n             $table->id();\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n-            $table->string('coordonnéesGPS ')\n+            $table->string('coordonnéesGPS');\n+            $\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228667657,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $\n+            $table->dat\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228675475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->dat\n+            $table->dateti\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228682386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->dateti\n+            $table->date\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228689640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->date\n+            $table->date('dateSignalement');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228696009,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->date('dateSignalement');\n+            $table->dateT('dateSignalement');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228725177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,11 @@\n             $table->string('quantité');\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n-            $table->dateT('dateSignalement');\n+            $table->date('dateSignalement');\n+            $table->enum('quantité',['fonctionnel','hors_services']);\n+\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228730393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('quantité',['fonctionnel','hors_services']);\n-\n+            $table->enum('stu',['fonctionnel','hors_services']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228746833,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('stu',['fonctionnel','hors_services']);\n+            $table->enum('statut',['en','hors_services']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228755288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en','hors_services']);\n+            $table->enum('statut',['en attent','hors_services']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228762544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en attent','hors_services']);\n+            $table->enum('statut',['en attente','hors_services']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228777134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en attente','hors_services']);\n+            $table->enum('statut',['en attente','traité']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228784015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en attente','traité']);\n+            $table->enum('statut',['en attente','traité','refusé']);\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228808705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en attente','traité','refusé']);\n+            $table->enum('statut',['en attente','traité','refusé'])->def;\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740228816884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en attente','traité','refusé'])->def;\n+            $table->enum('statut',['en attente','traité','refusé'])->default('en atten');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740229274700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,10 @@\n             $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n-            $table->enum('statut',['en attente','traité','refusé'])->default('en atten');\n+            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n+            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740229365676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->enum('quantité',['fonctionnel','hors_services']);\n+            $table->string;\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740229373241,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->string;\n+            $table->string();\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740229383402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->string();\n+            $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740229388605,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,8 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n-            $table->enum('quantité',['fonctionnel','hors_services']);\n             $table->string('adresse');\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740234019852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n             $table->string('coordonnéesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n+            \n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237057887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,13 +14,13 @@\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantité');\n             $table->string('adresse');\n-            $table->string('coordonnéesGPS');\n+            $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-            \n+            $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237074090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n-            $table->string('quantité');\n+            $table->string('quantite');\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740237091689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n-            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('users_id')->constrained()->onDelete('cascade');\n             $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740243542037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantite');\n+            $\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740243550946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,35 @@\n+<?php\n+\n+use Illuminate\\Database\\Migrations\\Migration;\n+use Illuminate\\Database\\Schema\\Blueprint;\n+use Illuminate\\Support\\Facades\\Schema;\n+\n+return new class extends Migration\n+{\n+    /**\n+     * Run the migrations.\n+     */\n+    public function up(): void\n+    {\n+        Schema::create('reports', function (Blueprint $table) {\n+            $table->id();\n+            $table->string('quantite');\n+            $table->string\n+            $table->string('adresse');\n+            $table->string('coordonneesGPS');\n+            $table->date('dateSignalement');\n+            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n+            $table->foreignId('users_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n+            $table->timestamps();\n+        });\n+    }\n+\n+    /**\n+     * Reverse the migrations.\n+     */\n+    public function down(): void\n+    {\n+        Schema::dropIfExists('reports');\n+    }\n+};\n"
+                },
+                {
+                    "date": 1740243558013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantite');\n-            $table->string\n+            $table->string('image')\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n@@ -32,39 +32,4 @@\n     {\n         Schema::dropIfExists('reports');\n     }\n };\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('reports', function (Blueprint $table) {\n-            $table->id();\n-            $table->string('quantite');\n-            $\n-            $table->string('adresse');\n-            $table->string('coordonneesGPS');\n-            $table->date('dateSignalement');\n-            $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n-            $table->foreignId('users_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n-            $table->timestamps();\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('reports');\n-    }\n-};\n"
+                },
+                {
+                    "date": 1740243566280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantite');\n-            $table->string('image')\n+            $table->string('image'),\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n"
+                },
+                {
+                    "date": 1740243788249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,15 +13,15 @@\n     {\n         Schema::create('reports', function (Blueprint $table) {\n             $table->id();\n             $table->string('quantite');\n-            $table->string('image'),\n+            $table->string('image');\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n             $table->foreignId('users_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('recycling-companies_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('recycling_companies_id')->constrained()->onDelete('cascade');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740244295813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n             $table->foreignId('users_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('recycling_companies_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('recycling_companies_id')->constrained()-;\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740244303606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,10 @@\n             $table->string('adresse');\n             $table->string('coordonneesGPS');\n             $table->date('dateSignalement');\n             $table->enum('statut',['en attente','traité','refusé'])->default('en attente');\n-            $table->foreignId('users_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('recycling_companies_id')->constrained()-;\n+            $table->foreignId('users_id')->constrained();\n+            $table->foreignId('recycling_companies_id')->constrained();\n             $table->timestamps();\n         });\n     }\n \n"
+                }
+            ],
+            "date": 1740228406374,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('reports', function (Blueprint $table) {\n            $table->id();\n            \n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('reports');\n    }\n};\n"
+        }
+    ]
+}

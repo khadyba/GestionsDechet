@@ -1,0 +1,34 @@
+{
+    "sourceFile": "app/Models/Reward.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1740243064975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740243080003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,14 @@\n \n class Reward extends Model\n {\n     use HasFactory;\n-    \n+\n+    protected $fillable = [\n+        'quantite',\n+        'coordonneesGPS',\n+        'dateSignalement',\n+        'statut',\n+        'users_id',\n+        'recycling-companies_id'\n+    ];\n }\n"
+                },
+                {
+                    "date": 1740243085927,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,11 +10,7 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'quantite',\n-        'coordonneesGPS',\n-        'dateSignalement',\n-        'statut',\n-        'users_id',\n-        'recycling-companies_id'\n+       \n     ];\n }\n"
+                },
+                {
+                    "date": 1740243168480,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'quantite',\n-       \n+       'description'\n     ];\n }\n"
+                },
+                {
+                    "date": 1740243232225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,8 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'quantite',\n-       'description'\n+       'description',\n+       'pointsRécompense'\n     ];\n }\n"
+                }
+            ],
+            "date": 1740243064975,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Reward extends Model\n{\n    use HasFactory;\n    \n}\n"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_121905_create_rewards_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1740234296160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740234304630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('rewards', function (Blueprint $table) {\n             $table->id();\n-            $table->id();\n+            $table->();\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234310078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('rewards', function (Blueprint $table) {\n             $table->id();\n-            $table->();\n+            $table->text('');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234315981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,12 @@\n     public function up(): void\n     {\n         Schema::create('rewards', function (Blueprint $table) {\n             $table->id();\n-            $table->text('');\n+            $table->text('descriptions');\n+            $table->id();\n \n+\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234334644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('rewards', function (Blueprint $table) {\n             $table->id();\n             $table->text('descriptions');\n-            $table->id();\n+            $table->int('pointsRécompense');\n \n \n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1740234420046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,12 +12,10 @@\n     public function up(): void\n     {\n         Schema::create('rewards', function (Blueprint $table) {\n             $table->id();\n-            $table->text('descriptions');\n+            $table->text('description');\n             $table->int('pointsRécompense');\n-\n-\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237860963,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('rewards', function (Blueprint $table) {\n             $table->id();\n             $table->text('description');\n-            $table->int('pointsRécompense');\n+            $table->integer('pointsRécompense');\n             $table->timestamps();\n         });\n     }\n \n"
+                }
+            ],
+            "date": 1740234296160,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('rewards', function (Blueprint $table) {\n            $table->id();\n            $table->id();\n\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('rewards');\n    }\n};\n"
+        }
+    ]
+}

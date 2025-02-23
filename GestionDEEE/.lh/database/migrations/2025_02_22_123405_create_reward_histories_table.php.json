@@ -1,0 +1,58 @@
+{
+    "sourceFile": "database/migrations/2025_02_22_123405_create_reward_histories_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1740234466969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740234475163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n-            $table->foreignId('collection-points_id')->constrained()->onDelete('cascade');\n+            $table->foreignI_id')->constrained()->onDelete('cascade');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234481986,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n-            $table->foreignI_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('re_id')->constrained()->onDelete('cascade');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234487076,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     public function up(): void\n     {\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n-            $table->foreignId('re_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234522351,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,10 @@\n     {\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n-\n+            $table->foreignId('collection-points_id')->constrained()->onDelete('cascade');\n+             \n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234529432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     {\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('collection-points_id')->constrained()->onDelete('cascade');\n+            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n              \n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1740234577137,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-             \n+             *\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234583325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-             *\n+            $table\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234595151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-            $table\n+            $table->dat\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740234600560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n             $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-            $table->dat\n+            $table->date('dateObtention')\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1740237999551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,10 @@\n     {\n         Schema::create('reward_histories', function (Blueprint $table) {\n             $table->id();\n             $table->foreignId('rewards_id')->constrained()->onDelete('cascade');\n-            $table->foreignId('user_id')->constrained()->onDelete('cascade');\n-            $table->date('dateObtention')\n+            $table->foreignId('users_id')->constrained()->onDelete('cascade');\n+            $table->date('dateObtention');\n             $table->timestamps();\n         });\n     }\n \n"
+                }
+            ],
+            "date": 1740234466969,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('reward_histories', function (Blueprint $table) {\n            $table->id();\n            $table->foreignId('collection-points_id')->constrained()->onDelete('cascade');\n\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('reward_histories');\n    }\n};\n"
+        }
+    ]
+}

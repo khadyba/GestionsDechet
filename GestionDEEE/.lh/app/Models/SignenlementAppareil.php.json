@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/Models/SignenlementAppareil.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1740243646691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740243658631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,6 +7,11 @@\n \n class SignenlementAppareil extends Model\n {\n     use HasFactory;\n-    \n+\n+    protected $fillable = [\n+        'rewards_id',\n+        'users_id',\n+        'dateObtention'\n+    ]; \n }\n"
+                },
+                {
+                    "date": 1740243675245,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'rewards_id',\n+        'rappareilles_id',\n         'users_id',\n         'dateObtention'\n     ]; \n }\n"
+                },
+                {
+                    "date": 1740243685732,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n \n     protected $fillable = [\n-        'rappareilles_id',\n-        'users_id',\n+        'appareilles_id',\n+        'reports_id',\n         'dateObtention'\n     ]; \n }\n"
+                }
+            ],
+            "date": 1740243646691,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass SignenlementAppareil extends Model\n{\n    use HasFactory;\n    \n}\n"
+        }
+    ]
+}

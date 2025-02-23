@@ -1,0 +1,90 @@
+{
+    "sourceFile": "app/Models/User.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1740210963275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1740238127308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n      * @var array<int, string>\n      */\n     protected $fillable = [\n         'name',\n+        \n         'email',\n         'password',\n     ];\n \n"
+                },
+                {
+                    "date": 1740238135128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n      * @var array<int, string>\n      */\n     protected $fillable = [\n         'name',\n-        \n+        ''\n         'email',\n         'password',\n     ];\n \n"
+                },
+                {
+                    "date": 1740238166621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,11 @@\n      * @var array<int, string>\n      */\n     protected $fillable = [\n         'name',\n-        ''\n+        'prenom',\n         'email',\n+        'télephone'\n         'password',\n     ];\n \n     /**\n"
+                },
+                {
+                    "date": 1740238190980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,11 @@\n     protected $fillable = [\n         'name',\n         'prenom',\n         'email',\n-        'télephone'\n+        'télephone',\n         'password',\n+        \n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238199379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        \n+        'role'->\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238204476,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'->\n+        'role'->[''],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238209764,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'->[''],\n+        'role'=[''],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238230965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'=[''],\n+        'role'=> [''cytoyen','entreprise','admin''],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238236995,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'=> [''cytoyen','entreprise','admin''],\n+        'role'=> [''cytoyen','entreprise','admin'],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238245626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'=> [''cytoyen','entreprise','admin'],\n+        'role'=> [''','entreprise','admin''],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238259048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'=> [''','entreprise','admin''],\n+        'role'=> ['cytoyen','entreprise','admin''],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238265402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'=> ['cytoyen','entreprise','admin''],\n+        'role'=> ['cytoyen','entreprise','admin'],\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238286157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n-        'role'=> ['cytoyen','entreprise','admin'],\n+        'role',\n     ];\n \n     /**\n      * The attributes that should be hidden for serialization.\n"
+                },
+                {
+                    "date": 1740238300991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,5 +56,8 @@\n      public function getJWTCustomClaims()\n      {\n          return [];\n      }\n+\n+\n+     \n }\n"
+                },
+                {
+                    "date": 1740238658101,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,6 +58,9 @@\n          return [];\n      }\n \n \n-     \n+     public function reports()\n+    {\n+        return $this->hasMany(Report::class);\n+    }\n }\n"
+                },
+                {
+                    "date": 1740239294558,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,5 +62,7 @@\n      public function reports()\n     {\n         return $this->hasMany(Report::class);\n     }\n+\n+    \n }\n"
+                },
+                {
+                    "date": 1740262767789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n      *\n      * @var array<int, string>\n      */\n     protected $fillable = [\n-        'name',\n+        'nom',\n         'prenom',\n         'email',\n         'télephone',\n         'password',\n"
+                },
+                {
+                    "date": 1740268674786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     protected $fillable = [\n         'nom',\n         'prenom',\n         'email',\n-        'télephone',\n+        'telephone',\n         'password',\n         'role',\n     ];\n \n"
+                }
+            ],
+            "date": 1740210963275,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\n// use Illuminate\\Contracts\\Auth\\MustVerifyEmail;\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Foundation\\Auth\\User as Authenticatable;\nuse Illuminate\\Notifications\\Notifiable;\nuse Laravel\\Sanctum\\HasApiTokens;\n\nclass User extends Authenticatable\n{\n    use HasApiTokens, HasFactory, Notifiable;\n\n    /**\n     * The attributes that are mass assignable.\n     *\n     * @var array<int, string>\n     */\n    protected $fillable = [\n        'name',\n        'email',\n        'password',\n    ];\n\n    /**\n     * The attributes that should be hidden for serialization.\n     *\n     * @var array<int, string>\n     */\n    protected $hidden = [\n        'password',\n        'remember_token',\n    ];\n\n    /**\n     * The attributes that should be cast.\n     *\n     * @var array<string, string>\n     */\n    protected $casts = [\n        'email_verified_at' => 'datetime',\n        'password' => 'hashed',\n    ];\n\n\n     // Implémentation des méthodes JWT\n     public function getJWTIdentifier()\n     {\n         return $this->getKey();\n     }\n \n     public function getJWTCustomClaims()\n     {\n         return [];\n     }\n}\n"
+        }
+    ]
+}
